@@ -18,14 +18,14 @@ char **get_path_line(char **envp)
     return (NULL);
 }
 
-char *control_cmd(char *cmd)
-{
-    if(!ft_strchr(cmd,'/'))
-        return(NULL);
-    if(access(cmd,X_OK)==0)
-        return (cmd);
-    return (NULL);
-}
+//char *control_cmd(char *cmd)
+//{
+//    if(!ft_strchr(cmd,'/'))
+//        return(NULL);
+//    if(access(cmd,X_OK)==0)
+//        return (cmd);
+//    return (NULL);
+//}
 char *run_cmd_path(char **path, char *cmd)
 {
     char *real;

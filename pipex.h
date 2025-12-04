@@ -9,5 +9,5 @@
 #include <sys/wait.h>
 
 char **get_path_line(char **envp);
-
+char *run_cmd_path(char **path, char *cmd);
 #endif
