@@ -32,18 +32,19 @@ char *run_cmd_path(char **path, char *cmd)
     int i;
     char *full_path;
 
+    if (!path || !cmd)  // ✅ EKLE: NULL kontrol
+        return (NULL);
     i = 0;    
     while(path[i])
     {
-        if(!(real = ft_strjoin(path[i],"/")))
+        real = ft_strjoin(path[i],"/");
+        if (!real)  // ✅ DÜZELT: Parantez içinde atama yapma
             return (NULL);
-        if(!(full_path = ft_strjoin(real,cmd)))
-        {
-            free(real);
+        full_path = ft_strjoin(real,cmd);
+        free(real);  // ✅ Her durumda free et
+        if (!full_path)
             return (NULL);
-        }
-        free(real);
-        if(access(full_path,F_OK |X_OK)==0)
+        if(access(full_path, X_OK) == 0)  // ✅ DÜZELT: F_OK gereksiz
             return (full_path);
         free(full_path);
         i++;
