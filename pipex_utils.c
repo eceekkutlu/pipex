@@ -28,3 +28,12 @@ void file_error(int file,int *fd, int flag)
 		exit(1);
 	}
 }
+int ac_error(int ac)
+{
+	if (ac != 5)
+	{
+		ft_putendl_fd("Usage: ./pipex infile cmd1 cmd2 outfile", 2);
+		return (1);
+	}
+	return (0);
+}

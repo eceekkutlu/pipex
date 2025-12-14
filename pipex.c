@@ -99,11 +99,8 @@ int	main(int ac, char **av, char **envp)
     int		outfile;
     int		status;
 
-    if (ac != 5)
-    {
-        ft_putendl_fd("Usage: ./pipex infile cmd1 cmd2 outfile", 2);
+    if (ac_error(ac))
         return (1);
-    }
     if (pipe(fd) == -1)
         return (perror("pipe"), 1);
     infile = open(av[1], O_RDONLY, 0777);
