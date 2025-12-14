@@ -97,7 +97,6 @@ int	main(int ac, char **av, char **envp)
     int		fd[2];
     int		infile;
     int		outfile;
-    int		status;
 
     if (ac_error(ac))
         return (1);
@@ -118,6 +117,6 @@ int	main(int ac, char **av, char **envp)
         close(outfile);
     close(fd[0]);
     waitpid(-1, NULL, 0);
-    waitpid(-1, &status, 0);
-    return (WIFEXITED(status) ? WEXITSTATUS(status) : 1);
+    waitpid(-1, NULL, 0);
+    return (1);
 }
